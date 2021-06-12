@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    categories = getCatagories();
+    categories = getCategories();
      getNews();
   }
   bool _loading =true;
@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index){
                       return CategoryTile(
-                        imageUrl: categories[index].imageurl,
+                        imageUrl: categories[index].imageUrl,
                         categoryName: categories[index].categoryName,
                       );
                     }
@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
      return GestureDetector(
        onTap: (){
           Navigator.push(context, MaterialPageRoute(
-              builder: (context) => Category_news(
+              builder: (context) => CategoryNews(
                 category: categoryName.toString().toLowerCase(),
               )
           ));

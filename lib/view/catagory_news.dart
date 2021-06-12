@@ -6,14 +6,14 @@ import 'package:my_news/view/articleview.dart';
 import 'home.dart';
 
 // ignore: camel_case_types
-class Category_news extends StatefulWidget {
+class CategoryNews extends StatefulWidget {
   final String category;
-  Category_news({this.category});
+  CategoryNews({this.category});
   @override
-  _Category_newsState createState() => _Category_newsState();
+  _CategoryNewsState createState() => _CategoryNewsState();
 }
 
-class _Category_newsState extends State<Category_news> {
+class _CategoryNewsState extends State<CategoryNews> {
   List<ArticleModel> articles = new List<ArticleModel>();
   bool _loading = true;
 
@@ -24,7 +24,7 @@ class _Category_newsState extends State<Category_news> {
   }
 
   getCategoryNews() async {
-    categoryNewsClass newsClass = categoryNewsClass();
+    CategoryNewsClass newsClass = CategoryNewsClass();
     await newsClass.getNews(widget.category);
     articles = newsClass.news;
     setState(() {
@@ -87,25 +87,25 @@ class _Category_newsState extends State<Category_news> {
   @override
   Widget build(BuildContext context) {
   return GestureDetector(
-  onTap: (){
-  Navigator.push(context, MaterialPageRoute(
-  builder: (context) => ArticleView(
-  blogUrl: url,
-  ),
-  ),
-  );
-  },
-  child: Container(
-  margin: EdgeInsets.only(bottom: 16),
-  child: Column(
-  children: <Widget>[
-  ClipRRect(
-  borderRadius: BorderRadius.circular(6),
-  child: Image.network(imageUrl)
-  ),
-  SizedBox(height: 8,),
-  Text(title ,style: TextStyle(
-  fontSize: 17,
+   onTap: (){
+   Navigator.push(context, MaterialPageRoute(
+   builder: (context) => ArticleView(
+   blogUrl: url,
+      ),
+      ),
+     );
+    },
+   child: Container(
+   margin: EdgeInsets.only(bottom: 16),
+   child: Column(
+   children: <Widget>[
+   ClipRRect(
+    borderRadius: BorderRadius.circular(6),
+    child: Image.network(imageUrl)
+    ),
+    SizedBox(height: 8,),
+    Text(title ,style: TextStyle(
+      fontSize: 17,
   color: Colors.black87,
   fontWeight: FontWeight.w600,
   ),),
